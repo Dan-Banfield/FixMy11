@@ -22,7 +22,7 @@ namespace FixMy11
                 Environment.Exit(0);
             }
 
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
