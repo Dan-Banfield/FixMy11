@@ -18,7 +18,7 @@ namespace FixMy11
 
             if (!(OSVersion.GetOperatingSystem() == OperatingSystem.Windows11))
             {
-                MessageBox.Show("This application only supports Windows 11 builds. Thank you for your patience.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This application only supports Windows 11 builds.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
 
