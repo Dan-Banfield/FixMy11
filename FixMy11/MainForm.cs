@@ -79,17 +79,17 @@ namespace FixMy11
 
         private void AddPrivacyFeatureNodes()
         {
+            //Create privacy parent node for organisation.
+
             TreeNode privacyNode = new TreeNode("Privacy");
             treeView.Nodes.Add(privacyNode);
 
             #region Privacy Feature Nodes
 
-            DiagnosticData diagnosticData = new DiagnosticData();
-
             TreeNode diagnosticDataTreeNode = new TreeNode("Disable Diagnostic Data Collection");
-            diagnosticDataTreeNode.Tag = diagnosticData;
+            diagnosticDataTreeNode.Tag = DiagnosticData.Instance;
 
-            nodeFeaturePairs.Add(new TreeNodeFeaturePair() { TreeNode = diagnosticDataTreeNode, Feature = diagnosticData } );
+            nodeFeaturePairs.Add(new TreeNodeFeaturePair() { TreeNode = diagnosticDataTreeNode, Feature = DiagnosticData.Instance } );
 
             privacyNode.Nodes.Add(diagnosticDataTreeNode);
 
