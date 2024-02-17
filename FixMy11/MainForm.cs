@@ -79,6 +79,9 @@ namespace FixMy11
 
         private void AddPrivacyFeatureNodes()
         {
+            TreeNode privacyNode = new TreeNode("Privacy");
+            treeView.Nodes.Add(privacyNode);
+
             #region Privacy Feature Nodes
 
             DiagnosticData diagnosticData = new DiagnosticData();
@@ -88,7 +91,7 @@ namespace FixMy11
 
             nodeFeaturePairs.Add(new TreeNodeFeaturePair() { TreeNode = diagnosticDataTreeNode, Feature = diagnosticData } );
 
-            treeView.Nodes.Add(diagnosticDataTreeNode);
+            privacyNode.Nodes.Add(diagnosticDataTreeNode);
 
             #endregion
         }
