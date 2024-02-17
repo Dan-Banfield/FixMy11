@@ -1,19 +1,24 @@
 ﻿using System.Linq;
 using System.Diagnostics;
 using System.Windows.Forms;
+using FixMy11.Features.Privacy;
+using System.Collections.Generic;
 
 namespace FixMy11
 {
     public partial class MainForm : Form
     {
+        private List<TreeNodeFeaturePair> nodeFeaturePairs = new List<TreeNodeFeaturePair>();
+
         public MainForm()
         {
             InitializeComponent();
+            PopulateTreeView();
         }
 
         #region Event Handlers
 
-        #region Link Labels
+        #region Link Label
 
         private void sourceCodeLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             => Process.Start("https://github.com/Dan-Banfield/FixMy11");
@@ -49,6 +54,44 @@ namespace FixMy11
         }
 
         #endregion
+
+        #region Buttons
+
+        private void applySelectedFixesButton_Click(object sender, System.EventArgs e)
+        {
+            foreach (TreeNodeFeaturePair pair in nodeFeaturePairs)
+            {
+                if (pair.TreeNode.Checked)
+                    pair.Feature.DoFeature();
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Methods
+
+        private void PopulateTreeView()
+        {
+            AddPrivacyFeatureNodes();
+        }
+
+        private void AddPrivacyFeatureNodes()
+        {
+            #region Privacy Feature Nodes
+
+            DiagnosticData diagnosticData = new DiagnosticData();
+
+            TreeNode diagnosticDataTreeNode = new TreeNode("Disable Diagnostic Data Collection");
+            diagnosticDataTreeNode.Tag = diagnosticData;
+
+            nodeFeaturePairs.Add(new TreeNodeFeaturePair() { TreeNode = diagnosticDataTreeNode, Feature = diagnosticData } );
+
+            treeView.Nodes.Add(diagnosticDataTreeNode);
+
+            #endregion
+        }
 
         #endregion
     }

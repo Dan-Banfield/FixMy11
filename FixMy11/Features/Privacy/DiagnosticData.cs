@@ -2,12 +2,12 @@
 
 namespace FixMy11.Features.Privacy
 {
-    internal class DiagnosticData : IFeature
+    internal class DiagnosticData : FeatureBase
     {
-        private const string KEY_NAME = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Privacy";
         private const int FIX_VALUE = 0;
+        private const string KEY_NAME = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Privacy";
 
-        void IFeature.DoFeature()
+        internal override void DoFeature()
         {
             try
             {
@@ -17,7 +17,7 @@ namespace FixMy11.Features.Privacy
             catch { MessageBoxHelper.ShowError("Failed to disable diagnostic data!"); }
         }
 
-        void IFeature.UndoFeature()
+        internal override void UndoFeature()
         {
             try
             {

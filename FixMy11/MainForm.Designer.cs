@@ -28,37 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Disable Diagnostic Data");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Disable Compatibility Telemetry");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Disable Telemetry");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Disable Windows Tips");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Disable Advertising");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Disable App Auto-Installs");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Disable Background Apps");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Disable Feedback");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Disable Location Tracking");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Disable Suggested Content");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Disabled Tailored Experiences");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Privacy", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Disable Teams on Startup");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Bloatware", new System.Windows.Forms.TreeNode[] {
-            treeNode13});
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Enable Full Context Menu");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Remove Fax Printer");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("System", new System.Windows.Forms.TreeNode[] {
-            treeNode15,
-            treeNode16});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.treeView = new System.Windows.Forms.TreeView();
             this.titleLabel = new System.Windows.Forms.Label();
@@ -74,44 +43,6 @@
             this.treeView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView.Location = new System.Drawing.Point(12, 80);
             this.treeView.Name = "treeView";
-            treeNode1.Name = "disableDiagnosticDataNode";
-            treeNode1.Text = "Disable Diagnostic Data";
-            treeNode2.Name = "disableCompatibilityTelemetryNode";
-            treeNode2.Text = "Disable Compatibility Telemetry";
-            treeNode3.Name = "disableTelemetryNode";
-            treeNode3.Text = "Disable Telemetry";
-            treeNode4.Name = "disableWindowsTipsNode";
-            treeNode4.Text = "Disable Windows Tips";
-            treeNode5.Name = "disableAdvertising";
-            treeNode5.Text = "Disable Advertising";
-            treeNode6.Name = "disableAppAutoInstallsNode";
-            treeNode6.Text = "Disable App Auto-Installs";
-            treeNode7.Name = "disableBackgroundAppsNode";
-            treeNode7.Text = "Disable Background Apps";
-            treeNode8.Name = "disableFeedbackNode";
-            treeNode8.Text = "Disable Feedback";
-            treeNode9.Name = "disableLocationTrackingNode";
-            treeNode9.Text = "Disable Location Tracking";
-            treeNode10.Name = "disableSuggestedContentNode";
-            treeNode10.Text = "Disable Suggested Content";
-            treeNode11.Name = "disableTailoredExperiencesNode";
-            treeNode11.Text = "Disabled Tailored Experiences";
-            treeNode12.Name = "privacyNode";
-            treeNode12.Text = "Privacy";
-            treeNode13.Name = "disableTeamsOnStartupNode";
-            treeNode13.Text = "Disable Teams on Startup";
-            treeNode14.Name = "bloatwareNode";
-            treeNode14.Text = "Bloatware";
-            treeNode15.Name = "enableFullContextMenuNode";
-            treeNode15.Text = "Enable Full Context Menu";
-            treeNode16.Name = "removeFaxPrinterNode";
-            treeNode16.Text = "Remove Fax Printer";
-            treeNode17.Name = "systemNode";
-            treeNode17.Text = "System";
-            this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode12,
-            treeNode14,
-            treeNode17});
             this.treeView.Size = new System.Drawing.Size(427, 375);
             this.treeView.TabIndex = 0;
             this.treeView.TabStop = false;
@@ -146,6 +77,7 @@
             this.applySelectedFixesButton.TabStop = false;
             this.applySelectedFixesButton.Text = "Apply Selected Fixes";
             this.applySelectedFixesButton.UseVisualStyleBackColor = true;
+            this.applySelectedFixesButton.Click += new System.EventHandler(this.applySelectedFixesButton_Click);
             // 
             // sourceCodeLinkLabel
             // 
