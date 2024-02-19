@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 using FixMy11.Features.Privacy;
 using System.Collections.Generic;
 
@@ -57,13 +58,24 @@ namespace FixMy11
 
         #region Buttons
 
-        private void applySelectedFixesButton_Click(object sender, System.EventArgs e)
+        private async void applySelectedFixesButton_Click(object sender, System.EventArgs e)
         {
+            int fixCount = 0;
+
             foreach (TreeNodeFeaturePair pair in nodeFeaturePairs)
             {
                 if (pair.TreeNode.Checked)
-                    pair.Feature.DoFeature();
+                {
+                    await Task.Run(() => 
+                    {
+                        pair.Feature.DoFeature();
+                    });
+                    fixCount++;
+                }
             }
+
+            if (fixCount <= 0)
+                MessageBoxHelper.ShowError("You must select at least one thing to fix!");
         }
 
         #endregion
@@ -87,13 +99,11 @@ namespace FixMy11
             #region Privacy Feature Nodes
 
             TreeNode diagnosticDataTreeNode = new TreeNode("Disable Diagnostic Data Collection");
-            diagnosticDataTreeNode.Tag = DiagnosticData.Instance;
-
             nodeFeaturePairs.Add(new TreeNodeFeaturePair() { TreeNode = diagnosticDataTreeNode, Feature = DiagnosticData.Instance } );
 
-            privacyNode.Nodes.Add(diagnosticDataTreeNode);
-
             #endregion
+
+            privacyNode.Nodes.Add(diagnosticDataTreeNode);
         }
 
         #endregion
