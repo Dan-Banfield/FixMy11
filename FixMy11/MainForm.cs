@@ -75,7 +75,12 @@ namespace FixMy11
             }
 
             if (fixCount <= 0)
+            {
                 MessageBoxHelper.ShowError("You must select at least one thing to fix!");
+                return;
+            }
+
+            PromptRestart();
         }
 
         #endregion
@@ -113,6 +118,14 @@ namespace FixMy11
             privacyNode.Nodes.Add(locationTrackingTreeNode);
             privacyNode.Nodes.Add(advertisingIDTreeNode);
         }
+
+        private void PromptRestart()
+        {
+            if (MessageBoxHelper.AskQuestion("It is highly recommended to restart your PC after making changes like these. Would you like to do so now?") == DialogResult.Yes)
+                RestartPC();
+        }
+
+        private void RestartPC() => Process.Start("shutdown", "/r /t 0");
 
         #endregion
     }
