@@ -53,7 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\FeatureBase.cs" />
+    <Compile Include="Features\Privacy\AdvertisingID.cs" />
     <Compile Include="Features\Privacy\DiagnosticData.cs" />
+    <Compile Include="Features\Privacy\LocationTracking.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -101,9 +101,17 @@ namespace FixMy11
             TreeNode diagnosticDataTreeNode = new TreeNode("Disable Diagnostic Data Collection");
             nodeFeaturePairs.Add(new TreeNodeFeaturePair() { TreeNode = diagnosticDataTreeNode, Feature = DiagnosticData.Instance } );
 
+            TreeNode locationTrackingTreeNode = new TreeNode("Disable Location Tracking");
+            nodeFeaturePairs.Add(new TreeNodeFeaturePair() { TreeNode = locationTrackingTreeNode, Feature = LocationTracking.Instance });
+
+            TreeNode advertisingIDTreeNode = new TreeNode("Disable Advertising ID");
+            nodeFeaturePairs.Add(new TreeNodeFeaturePair() { TreeNode = advertisingIDTreeNode, Feature = AdvertisingID.Instance });
+
             #endregion
 
             privacyNode.Nodes.Add(diagnosticDataTreeNode);
+            privacyNode.Nodes.Add(locationTrackingTreeNode);
+            privacyNode.Nodes.Add(advertisingIDTreeNode);
         }
 
         #endregion
