@@ -25,9 +25,9 @@ namespace FixMy11.Features.Privacy
             try
             {
                 Registry.SetValue(KEY_NAME, "TailoredExperiencesWithDiagnosticDataEnabled", FIX_VALUE, RegistryValueKind.DWord);
-                MessageBoxHelper.ShowInformation("Successfully disabled diagnostic data.");
+                Logger.Instance.Log("Successfully disabled diagnostic data.");
             }
-            catch { MessageBoxHelper.ShowError("Failed to disable diagnostic data!"); }
+            catch { Logger.Instance.Log("Failed to disable diagnostic data!"); }
         }
 
         internal override void UndoFeature()
@@ -35,9 +35,9 @@ namespace FixMy11.Features.Privacy
             try
             {
                 Registry.SetValue(KEY_NAME, "TailoredExperiencesWithDiagnosticDataEnabled", 1, RegistryValueKind.DWord);
-                MessageBoxHelper.ShowInformation("Successfully enabled diagnostic data.");
+                Logger.Instance.Log("Successfully enabled diagnostic data.");
             }
-            catch { MessageBoxHelper.ShowError("Failed to enable diagnostic data!"); }
+            catch { Logger.Instance.Log("Failed to enable diagnostic data!"); }
         }
     }
 }

@@ -25,9 +25,9 @@ namespace FixMy11.Features.Privacy
             try
             {
                 Registry.SetValue(KEY_NAME, "Enabled", FIX_VALUE, RegistryValueKind.DWord);
-                MessageBoxHelper.ShowInformation("Advertising ID disabled successfully.");
+                Logger.Instance.Log("Advertising ID disabled successfully.");
             }
-            catch { MessageBoxHelper.ShowError("Failed to disable advertising ID!"); }
+            catch { Logger.Instance.Log("Failed to disable advertising ID!"); }
         }
 
         internal override void UndoFeature()
@@ -35,9 +35,9 @@ namespace FixMy11.Features.Privacy
             try
             {
                 Registry.SetValue(KEY_NAME, "Enabled", 1, RegistryValueKind.DWord);
-                MessageBoxHelper.ShowInformation("Advertising ID enabled successfully.");
+                Logger.Instance.Log("Advertising ID enabled successfully.");
             }
-            catch { MessageBoxHelper.ShowError("Failed to enable advertising ID!"); }
+            catch { Logger.Instance.Log("Failed to enable advertising ID!"); }
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using FixMy11.Features.Privacy;
 using System.Collections.Generic;
 
-namespace FixMy11
+namespace FixMy11.Forms
 {
     public partial class MainForm : Form
     {
@@ -60,24 +60,20 @@ namespace FixMy11
 
         private async void applySelectedFixesButton_Click(object sender, System.EventArgs e)
         {
-            int fixCount = 0;
-
-            foreach (TreeNodeFeaturePair pair in nodeFeaturePairs)
-            {
-                if (pair.TreeNode.Checked)
-                {
-                    await Task.Run(() => 
-                    {
-                        pair.Feature.DoFeature();
-                    });
-                    fixCount++;
-                }
-            }
+            int fixCount = GetSelectedFeatureCount();
 
             if (fixCount <= 0)
             {
                 MessageBoxHelper.ShowError("You must select at least one thing to fix!");
                 return;
+            }
+
+            Hide();
+            Logger.Instance.ShowLogForm();
+            foreach (TreeNodeFeaturePair pair in nodeFeaturePairs)
+            {
+                if (pair.TreeNode.Checked)
+                    await Task.Run(() => pair.Feature.DoFeature());
             }
 
             PromptRestart();
@@ -88,6 +84,17 @@ namespace FixMy11
         #endregion
 
         #region Methods
+
+        private int GetSelectedFeatureCount()
+        {
+            int count = 0;
+            foreach (TreeNodeFeaturePair pair in nodeFeaturePairs)
+            {
+                if (pair.TreeNode.Checked)
+                    count++;
+            }
+            return count;
+        }
 
         private void PopulateTreeView()
         {

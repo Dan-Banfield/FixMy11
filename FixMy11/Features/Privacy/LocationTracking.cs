@@ -25,9 +25,9 @@ namespace FixMy11.Features.Privacy
             try
             {
                 Registry.SetValue(KEY_NAME, "Value", FIX_VALUE, RegistryValueKind.String);
-                MessageBoxHelper.ShowInformation("Location tracking disabled successfully.");
+                Logger.Instance.Log("Location tracking disabled successfully.");
             }
-            catch { MessageBoxHelper.ShowError("Failed to disable location tracking!"); }
+            catch { Logger.Instance.Log("Failed to disable location tracking!"); }
         }
 
         internal override void UndoFeature()
@@ -35,9 +35,9 @@ namespace FixMy11.Features.Privacy
             try
             {
                 Registry.SetValue(KEY_NAME, "Value", "Allow", RegistryValueKind.String);
-                MessageBoxHelper.ShowInformation("Location tracking enabled successfully.");
+                Logger.Instance.Log("Location tracking enabled successfully.");
             }
-            catch { MessageBoxHelper.ShowError("Failed to enable location tracking!"); }
+            catch { Logger.Instance.Log("Failed to enable location tracking!"); }
         }
     }
 }

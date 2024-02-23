@@ -1,4 +1,4 @@
-﻿namespace FixMy11
+﻿namespace FixMy11.Forms
 {
     partial class MainForm
     {
