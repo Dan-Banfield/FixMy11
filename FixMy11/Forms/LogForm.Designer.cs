@@ -33,6 +33,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sourceCodeLinkLabel = new System.Windows.Forms.LinkLabel();
             this.logTextBox = new System.Windows.Forms.TextBox();
+            this.continueButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,19 +71,32 @@
             // logTextBox
             // 
             this.logTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logTextBox.Location = new System.Drawing.Point(17, 85);
+            this.logTextBox.Location = new System.Drawing.Point(12, 85);
             this.logTextBox.Multiline = true;
             this.logTextBox.Name = "logTextBox";
             this.logTextBox.ReadOnly = true;
-            this.logTextBox.Size = new System.Drawing.Size(417, 422);
+            this.logTextBox.Size = new System.Drawing.Size(427, 340);
             this.logTextBox.TabIndex = 5;
+            // 
+            // continueButton
+            // 
+            this.continueButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.continueButton.Location = new System.Drawing.Point(12, 431);
+            this.continueButton.Name = "continueButton";
+            this.continueButton.Size = new System.Drawing.Size(427, 51);
+            this.continueButton.TabIndex = 6;
+            this.continueButton.TabStop = false;
+            this.continueButton.Text = "Continue";
+            this.continueButton.UseVisualStyleBackColor = true;
+            this.continueButton.Click += new System.EventHandler(this.continueButton_Click);
             // 
             // LogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(451, 519);
+            this.ClientSize = new System.Drawing.Size(451, 492);
+            this.Controls.Add(this.continueButton);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.sourceCodeLinkLabel);
             this.Controls.Add(this.pictureBox1);
@@ -107,6 +121,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel sourceCodeLinkLabel;
         internal System.Windows.Forms.TextBox logTextBox;
+        private System.Windows.Forms.Button continueButton;
     }
 }
 

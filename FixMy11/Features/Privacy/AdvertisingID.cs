@@ -25,7 +25,7 @@ namespace FixMy11.Features.Privacy
             try
             {
                 Registry.SetValue(KEY_NAME, "Enabled", FIX_VALUE, RegistryValueKind.DWord);
-                Logger.Instance.Log("Advertising ID disabled successfully.");
+                Logger.Instance.Log("Successfully disabled Advertising ID.");
             }
             catch { Logger.Instance.Log("Failed to disable advertising ID!"); }
         }
@@ -35,7 +35,7 @@ namespace FixMy11.Features.Privacy
             try
             {
                 Registry.SetValue(KEY_NAME, "Enabled", 1, RegistryValueKind.DWord);
-                Logger.Instance.Log("Advertising ID enabled successfully.");
+                Logger.Instance.Log("Successfully enabled Advertising ID.");
             }
             catch { Logger.Instance.Log("Failed to enable advertising ID!"); }
         }

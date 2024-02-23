@@ -25,6 +25,20 @@ namespace FixMy11.Forms
 
         #endregion
 
+        #region Button
+
+        private void continueButton_Click(object sender, System.EventArgs e)
+        {
+            if (PromptRestart())
+            {
+                RestartPC();
+                return;
+            }
+            Application.Exit();
+        }
+
+        #endregion
+
         #endregion
 
         #region Methods

@@ -75,8 +75,6 @@ namespace FixMy11.Forms
                 if (pair.TreeNode.Checked)
                     await Task.Run(() => pair.Feature.DoFeature());
             }
-
-            PromptRestart();
         }
 
         #endregion
@@ -125,14 +123,6 @@ namespace FixMy11.Forms
             privacyNode.Nodes.Add(locationTrackingTreeNode);
             privacyNode.Nodes.Add(advertisingIDTreeNode);
         }
-
-        private void PromptRestart()
-        {
-            if (MessageBoxHelper.AskQuestion("It is highly recommended to restart your PC after making changes like these. Would you like to do so now?") == DialogResult.Yes)
-                RestartPC();
-        }
-
-        private void RestartPC() => Process.Start("shutdown", "/r /t 0");
 
         #endregion
     }
